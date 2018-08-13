@@ -1,0 +1,41 @@
+#!/bin/sh
+set -x
+mirror='https://cloudflare.cdn.openbsd.org/pub/OpenBSD'
+
+rcctl enable apmd
+rcctl set apmd flags -A
+rcctl start apmd
+
+echo 'permit nopass agudulin' | tee /etc/doas.conf
+
+# swap ctrl with capslock
+echo us.swapctrlcaps > /etc/kbdtype
+
+# packages
+
+echo /etc/installurl
+echo "$mirror" | tee /etc/installurl
+
+echo 'run syspatch'
+syspatch
+
+ftp -o '/tmp/pkgs' https://openbsd.gudulin.com/pkgs
+export PKG_CACHE='/home/agudulin/pub/OpenBSD/6.3/packages/amd64'
+mkdir -p "$PKG_CACHE"
+pkg_add -l '/tmp/pkgs'
+
+# python
+ln -sf /usr/local/bin/python2.7 /usr/local/bin/python
+ln -sf /usr/local/bin/python2.7-2to3 /usr/local/bin/2to3
+ln -sf /usr/local/bin/python2.7-config /usr/local/bin/python-config
+ln -sf /usr/local/bin/pydoc2.7  /usr/local/bin/pydoc
+ln -sf /usr/local/bin/pip2.7 /usr/local/bin/pip
+pip install --upgrade pip
+
+# node
+npm install --global npm
+
+###############################################################################
+
+chown -R agudulin:agudulin '/home/agudulin'
+echo '-> now reboot and login as agudulin'

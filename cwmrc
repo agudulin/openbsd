@@ -1,0 +1,6 @@
+bind-key CM-r restart
+bind-key CM-v window-vtile
+bind-key M-b  "xbacklight -dec 10 -time 0"
+bind-key MS-b "xbacklight -inc 10 -time 0"
+
+sticky yes

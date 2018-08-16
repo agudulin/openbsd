@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# volume [up|down|toggle]
+#
+
+option=$1
+
+case $option in
+  up)     mixerctl outputs.master=+16 ;;
+  down)   mixerctl outputs.master=-16 ;;
+  toggle) mixerctl -t outputs.master.mute ;;
+esac

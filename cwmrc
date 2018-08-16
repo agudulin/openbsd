@@ -1,6 +1,10 @@
 bind-key CM-r restart
 bind-key CM-v window-vtile
-bind-key M-b  "xbacklight -dec 10 -time 0"
-bind-key MS-b "xbacklight -inc 10 -time 0"
+
+bind-key F1   "xbacklight -dec 10 -time 0"
+bind-key F2   "xbacklight -inc 10 -time 0"
+bind-key F9   "volume toggle"
+bind-key F10  "volume down"
+bind-key F11  "volume up"
 
 sticky yes

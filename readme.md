@@ -10,3 +10,9 @@
 # ln -s /home/agudulin/src/openbsd.gudulin.com/xinitrc /home/agudulin/.xinitrc
 ```
 
+### notes
+
+```sh
+doas pkg_add -uvi      # update packages
+doas date yyyymmddhhss # set date
+```

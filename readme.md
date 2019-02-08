@@ -16,3 +16,18 @@
 doas pkg_add -uvi      # update packages
 doas date yyyymmddhhss # set date
 ```
+
+### network
+
+```sh
+fw_update
+
+vim /etc/hostname.urtwn0
+
+# nwid network-name
+# wpakey network-pass
+# dhcp
+# up
+
+doas sh /etc/netstart urtwn0
+```

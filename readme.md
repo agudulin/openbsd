@@ -31,3 +31,7 @@ vim /etc/hostname.urtwn0
 
 doas sh /etc/netstart urtwn0
 ```
+
+### file manager
+
+xfe

@@ -12,3 +12,5 @@ alias la='ls -la'
 alias ..='cd ..'
 
 alias gst='git status'
+alias gco='git checkout'
+alias glog='git log'
